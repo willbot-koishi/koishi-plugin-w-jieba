@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-w-jieba",
   "description": "WillBot: Jieba service (based on `@willbot-koishi/jieba`)",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -9,14 +9,28 @@
     "dist"
   ],
   "license": "MIT",
-  "scripts": {},
   "keywords": [
     "chatbot",
     "koishi",
     "plugin"
   ],
-  "devDependencies": {},
   "peerDependencies": {
     "koishi": "^4.18.0"
+  },
+  "devDependencies": {
+    "@willbot-koishi/jieba": "^0.5.0",
+    "koishi-plugin-w-node": "workspace:^"
+  },
+  "koishi": {
+    "service": {
+      "required": [
+        "node"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "yarn workspace willbot build w-jieba",
+    "bump": "yarn workspace willbot bump w-jieba",
+    "pub": "yarn workspace willbot pub w-jieba"
   }
 }
