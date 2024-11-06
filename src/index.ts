@@ -23,7 +23,7 @@ class JiebaService extends Service {
         this.ctx.command('jieba.cut <sentence:text>', '将句子分词')
             .action((_, sentence) => `[分词结果] ${ this.jiebaDefault
                 .cut(this.transformMessage(sentence))
-                .join(' + ')
+                .join(', ')
             }`)
 
         this.ctx.command('jieba.cutall <sentence:text>', '获取句子中所有可能存在的词')
@@ -36,7 +36,7 @@ class JiebaService extends Service {
             .action((_, sentence) => `[分词结果] ${ this.jiebaDefault
                 .tag(this.transformMessage(sentence))
                 .map(({ word, tag }) => `${word} [${tag}]`)
-                .join(' + ')
+                .join(', ')
             }`)
     }
 
